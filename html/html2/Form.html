@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VALIDASI Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #656866;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .VALIDASI-form {
+      background: rgb(255, 255, 255);
+      padding: 40px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+    }
+    .btn-VALIDASI {
+      background-color: #8c8cfc;
+      border: none;
+    }
+    .btn-VALIDASI:hover {
+      background-color: #6a6afc;
+    }
+    .form-control {
+      background-color: #eee;
+      border: none;
+    }
+    .form-control:focus {
+      background-color: #eee;
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="VALIDASI-form text-center">
+  <h2 class="mb-4">FORM</h2>
+  <form id="VALIDASIForm">
+    <div class="mb-3 text-start">
+      <input type="text" class="form-control" id="username" placeholder="Username">
+      <div class="invalid-feedback">
+        Username tidak boleh kosong.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-VALIDASI w-100">LOGIN</button>
+  </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    $('#VALIDASIForm').on('submit', function(e) {
+      e.preventDefault();
+
+      var username = $('#username').val().trim();
+
+      if (username === '') {
+        $('#username').addClass('is-invalid');
+      } else {
+        $('#username').removeClass('is-invalid');
+        alert('Pengisian FORM berhasil!');
+      }
+    });
+
+    $('#username').on('input', function() {
+      if ($(this).val().trim() !== '') {
+        $(this).removeClass('is-invalid');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
